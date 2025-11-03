@@ -1,0 +1,40 @@
+/* Calendar */
+:root {
+  --cell-height: 1.5rem;
+  --cell-width: 2rem;
+  --color-background: #ffffff;
+  --color-prime: rgba(33, 177, 221, 0.12);
+  --color-same-month: rgba(162, 168, 170, 0.726);
+  --color-text: #2c3e50;
+}
+
+.calendar {
+  background: var(--color-background);
+  color: var(--color-text);
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0.5rem;
+  width: calc(7 * var(--cell-width));
+}
+
+.cell {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: var(--cell-height);
+  width: var(--cell-width);
+}
+
+.cell:hover {
+  background-color: var(--color-prime);
+  cursor: pointer;
+}
+
+.dimmed {
+  color: var(--color-same-month);
+}
+
+.current {
+  filter: brightness(50%);
+  background-color: var(--color-prime);
+}
