@@ -12,10 +12,9 @@ import dayjs from 'dayjs';
 import { computed } from 'vue';
 import { defineModel } from 'vue';
 
-const model = defineModel<Date>();
-
+const _model = defineModel<Date>();
 const _date = computed(() => {
-    return dayjs(model.value);
+    return dayjs(_model.value);
 });
 const _month = computed(() => {
     const start: dayjs.Dayjs = _date.value.startOf('month').startOf('week');
@@ -38,6 +37,6 @@ const _month = computed(() => {
 });
 
 function update(date: dayjs.Dayjs) {
-    model.value = date.toDate();
+    _model.value = date.toDate();
 };
 </script>
