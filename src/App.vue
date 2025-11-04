@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import dayjs from 'dayjs';
 import { computed, ref, type Ref } from 'vue';
-import Calendar from './components/Calendar.vue';
+import Datepicker from './components/Datepicker.vue';
+import dayjs from 'dayjs';
 
 const _date: Ref<Date, Date> = ref(new Date());
 const _current_date = computed(() => {
@@ -12,7 +12,9 @@ const _current_date = computed(() => {
 <template>
   {{ _current_date }}
   <hr />
-  <Calendar v-model="_date" />
+  <Datepicker v-model="_date">
+    <input :value="_current_date" />
+  </Datepicker>
 </template>
 
 <style scoped></style>

@@ -1,12 +1,3 @@
-<template>
-    <div class="calendar">
-        <div v-for="(day, index) in _month" :key="index" class="cell"
-            :class="{ dimmed: !day.same_month, current: day.current }" @click="update(day.date)">
-            {{ day.day_of_month }}
-        </div>
-    </div>
-</template>
-
 <script setup lang="ts">
 import dayjs from 'dayjs';
 import { computed } from 'vue';
@@ -36,7 +27,49 @@ const _month = computed(() => {
     return result;
 });
 
-function update(date: dayjs.Dayjs) {
+function updateCurrentDate(date: dayjs.Dayjs) {
     _model.value = date.toDate();
 };
 </script>
+
+<template>
+    <div class="calendar">
+        <div v-for="(day, index) in _month" :key="index" class="cell"
+            :class="{ dimmed: !day.same_month, current: day.current }" @click="updateCurrentDate(day.date)">
+            {{ day.day_of_month }}
+        </div>
+    </div>
+</template>
+
+<style scoped>
+/* Calendar */
+.calendar {
+    color: var(--color-text);
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0.5rem;
+    width: calc(7 * var(--cell-width));
+}
+
+.cell {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: var(--cell-height);
+    width: var(--cell-width);
+}
+
+.cell:hover {
+    background-color: var(--color-prime);
+    cursor: pointer;
+}
+
+.cell.dimmed {
+    color: var(--color-same-month);
+}
+
+.cell.current {
+    filter: brightness(50%);
+    background-color: var(--color-prime);
+}
+</style>
