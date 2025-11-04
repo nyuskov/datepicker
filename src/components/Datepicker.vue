@@ -13,7 +13,7 @@ const _popup_top = ref(null);
 const _popup_left = ref(null);
 const _active: Ref<Boolean, Boolean> = ref(false);
 const _current_date = computed(() => {
-    return dayjs(_date.value).format('L');
+    return dayjs(_date.value).format('MMMM YYYY');
 });
 const _popup_style = computed(() => {
     return {

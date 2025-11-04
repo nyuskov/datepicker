@@ -1,7 +1,7 @@
 /* General */
 :root {
-  --cell-height: 1.5rem;
-  --cell-width: 2rem;
+  --cell-height: 2rem;
+  --cell-width: 3rem;
   --color-background: #ffffff;
   --color-prime: rgba(3, 230, 219, 0.39);
   --color-same-month: rgba(162, 168, 170, 0.726);

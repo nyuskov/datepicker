@@ -10,8 +10,6 @@ const _current_date = computed(() => {
 </script>
 
 <template>
-  {{ _current_date }}
-  <hr />
   <Datepicker v-model="_date">
     <input :value="_current_date" />
   </Datepicker>
